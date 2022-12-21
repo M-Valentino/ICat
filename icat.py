@@ -1,6 +1,5 @@
 from PIL import Image, ImageOps, ImageFilter
 from numpy import asarray
-import cv2 as cv2
 import sys
 
 def printImage():
