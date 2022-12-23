@@ -14,5 +14,11 @@ To use ICat, run **icat 'imageFilename'**. You can add arguments after the file 
 - **-i** inverts the image.
 - **-s** sharpens the image.
 
-## Examples
-
+## Example
+icating this image:
+<br>
+<img src="https://user-images.githubusercontent.com/79779618/209410544-2d2c89ff-b77f-4165-a294-ebae8efd4de2.gif">
+<br>
+Produces this result:
+<br>
+<img src="https://user-images.githubusercontent.com/79779618/209410520-9f777981-03fb-4156-be83-da8955b9a65b.png">
