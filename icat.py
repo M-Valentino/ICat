@@ -1,4 +1,4 @@
-from PIL import Image, ImageOps, ImageFilter, ImageEnhance
+from PIL import Image, ImageOps, ImageFilter
 from numpy import asarray
 import sys
 
