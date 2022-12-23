@@ -21,4 +21,4 @@ icating this image:
 <br>
 Produces this result:
 <br>
-<img src="https://user-images.githubusercontent.com/79779618/209410520-9f777981-03fb-4156-be83-da8955b9a65b.png">
+<img src="https://user-images.githubusercontent.com/79779618/209410520-9f777981-03fb-4156-be83-da8955b9a65b.png" width="400px">
