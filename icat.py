@@ -1,6 +1,7 @@
 from PIL import Image, ImageOps, ImageFilter
 from numpy import asarray
 import sys
+import pathlib
 
 def printImage():
     data = asarray(bw_img)
@@ -19,18 +20,20 @@ def printImage():
                 print("  ", end="")
         print()
 
-
-image = Image.open(sys.argv[1])
-# Resize image to maintian aspect ratio as well as convert it to black and white.
-bw_img  = ImageOps.contain(image, (40,40)).convert("L")
+if (pathlib.Path(sys.argv[1]).suffix == ".svg"):
+    print("SVG not yet supported.")
+else:
+    image = Image.open(sys.argv[1])
+    # Resize image to maintian aspect ratio as well as convert it to black and white.
+    bw_img  = ImageOps.contain(image, (40,40)).convert("L")
     
-if (sys.argv[2] == "0-s" or sys.argv[3] == "0-s" or sys.argv[4] == "0-s"):
-    bw_img = bw_img.filter(ImageFilter.SHARPEN)
+    if (sys.argv[2] == "0-s" or sys.argv[3] == "0-s" or sys.argv[4] == "0-s"):
+        bw_img = bw_img.filter(ImageFilter.SHARPEN)
 
-if (sys.argv[2] == "0-c" or sys.argv[3] == "0-c" or sys.argv[4] == "0-c"):
-    bw_img = bw_img.filter(ImageFilter.CONTOUR)
+    if (sys.argv[2] == "0-c" or sys.argv[3] == "0-c" or sys.argv[4] == "0-c"):
+        bw_img = bw_img.filter(ImageFilter.CONTOUR)
 
-if (sys.argv[2] == "0-i" or sys.argv[3] == "0-i" or sys.argv[4] == "0-i"):
-    bw_img = ImageOps.invert(bw_img)
+    if (sys.argv[2] == "0-i" or sys.argv[3] == "0-i" or sys.argv[4] == "0-i"):
+        bw_img = ImageOps.invert(bw_img)
 
-printImage()
+    printImage()
