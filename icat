@@ -1,9 +1,12 @@
 #!/bin/sh
 if [ -z "$1" ]
 then
-    echo "Usage: enter a valid image file"
+    echo "usage: icat [file ...] [-s] [-c] [-i]"
+    echo "\t -s: sharpen image"
+    echo "\t -c: apply contour filter"
+    echo "\t -i: invert image"
 else
-    python3 /usr/local/bin/icat.py "$(pwd)""/$1" "0$2" "0$3"
+    python3 /usr/local/bin/icat.py "$(pwd)""/$1" "0$2" "0$3" "0$4"
 fi
 
 
