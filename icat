@@ -1,2 +1,9 @@
 #!/bin/sh
-python3 /usr/local/bin/icat.py "$(pwd)""/$1" "0$2"
+if [ -z "$1" ]
+then
+    echo "Usage: enter a valid image file"
+else
+    python3 /usr/local/bin/icat.py "$(pwd)""/$1" "0$2" "0$3"
+fi
+
+
