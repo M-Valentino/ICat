@@ -9,9 +9,9 @@ Clone the git repo anywhere you like and then run **./install.sh**. If you get a
 The directory ICat is installed to is `/usr/local/bin/`. If you delete your local clone of the ICat repo, the installation will not be affected.
 ## Running
 To use ICat, run **icat 'imageFilename'**. You can add arguments after the file name argument.
-**-c** applies a contour filter to the image.
-**-i** inverts the image.
-**-s** sharpens the image.
+- **-c** applies a contour filter to the image.
+- **-i** inverts the image.
+- **-s** sharpens the image.
 
 ## Examples
 
