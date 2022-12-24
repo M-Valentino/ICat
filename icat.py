@@ -6,34 +6,36 @@ import pathlib
 def printImage():
     data = asarray(bw_img)
     for i in range(data.shape[0]):
-        # Two chars are printed per pixel so that the image's aspect ratio is preserved.
+        # One char represents one half-width pixel.
         for j in range(data.shape[1]):
-            if (data[i][j] >= 204):
-                print("██", end="")
-            elif (data[i][j] < 204 and data[i][j] >= 153):
-                print("▓▓", end="")
-            elif (data[i][j] < 153 and data[i][j] >= 102):
-                print("▒▒",end="")
-            elif (data[i][j] < 102 and data[i][j] >= 51):
-                print("░░", end="")
+            if data[i][j] >= 204:
+                print("█", end="")
+            elif data[i][j] >= 153:
+                print("▓", end="")
+            elif data[i][j] >= 102:
+                print("▒",end="")
+            elif data[i][j] >= 51:
+                print("░", end="")
             else:
-                print("  ", end="")
+                print(" ", end="")
         print()
 
 if (pathlib.Path(sys.argv[1]).suffix == ".svg"):
     print("SVG not yet supported.")
 else:
     image = Image.open(sys.argv[1])
-    # Resize image to maintian aspect ratio as well as convert it to black and white.
-    bw_img  = ImageOps.contain(image, (40,40)).convert("L")
+    width, height = image.size
+    # Resizes image to be 50% as wide since image will be printed in half width "pixels".
+    image = image.resize((width, round(height / 2)), Image.ANTIALIAS)
+    # Resize image to maintian new aspect ratio (so it can fit on terminal) as well as convert it to black and white.
+    bw_img  = ImageOps.contain(image, (80,40)).convert("L")
     
-    if (sys.argv[2] == "0-s" or sys.argv[3] == "0-s" or sys.argv[4] == "0-s"):
+    options = sys.argv[2:]
+    if "0-s" in options:
         bw_img = bw_img.filter(ImageFilter.SHARPEN)
-
-    if (sys.argv[2] == "0-c" or sys.argv[3] == "0-c" or sys.argv[4] == "0-c"):
+    if "0-c" in options:
         bw_img = bw_img.filter(ImageFilter.CONTOUR)
-
-    if (sys.argv[2] == "0-i" or sys.argv[3] == "0-i" or sys.argv[4] == "0-i"):
+    if "0-i" in options:
         bw_img = ImageOps.invert(bw_img)
 
     printImage()
