@@ -1,14 +1,36 @@
 #!/bin/sh
 if [ -z "$1" ]
 then
-    echo "usage: icat [file ...] [-s] [-c] [-i] [x1.5 | x2]"
+    echo "usage: icat [file ... | -settings] [-s] [-c] [-i] [x1.5 | x2]"
     echo "\t -s: sharpen image"
     echo "\t -c: apply contour filter"
     echo "\t -i: invert image"
     echo "\t x1.5: prints image 1.5x larger than the default size."
     echo "\t x2: prints image 2x larger than the default size."
+    echo "\t -settings: changes the settings of ICat."
+elif [[ $1 = "-settings" ]]
+then
+    while true; do
+        read -p "Is your terminal font wide where this character, '▓' appears as a square? [y|n] " yn
+        case $yn in
+            [Yy]* ) line1="font_width: full"; break;;
+            [Nn]* ) line1="font_width: half"; break;;
+            * ) echo "Please enter 'y' or 'n'.";;
+        esac
+    done
+
+    while true; do
+        read -p "Is your terminal background light or dark? [l|d] " ld
+        case $ld in
+            [Ll]* ) line2="terminal_color: light"; break;;
+            [Dd]* ) line2="terminal_color: dark"; break;;
+            * ) echo "Please enter 'l' or 'd'.";;
+        esac
+    done
+
+    echo "$line1" | sudo tee /usr/local/bin/icat_settings.cfg;
+    echo "$line2" | sudo tee -a /usr/local/bin/icat_settings.cfg;
+
 else
     python3 /usr/local/bin/icat.py "$(pwd)""/$1" "0$2" "0$3" "0$4" "0$5"
 fi
-
-

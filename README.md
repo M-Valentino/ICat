@@ -20,6 +20,7 @@ To use ICat, run **icat 'imageFilename'**. You can add arguments after the file 
 - **-s** sharpens the image.
 - **x1.5** prints image 1.5x larger than the default size.
 - **x2** prints image 2x larger than the default size.
+- **-settings** Changes the settings of ICat.
 
 ## Example
 icating this image:

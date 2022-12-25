@@ -4,7 +4,7 @@ while true; do
     read -p "Is your terminal font wide where this character, '▓' appears as a square? [y|n] " yn
     case $yn in
         [Yy]* ) echo "font_width: full" > icat_settings.cfg; break;;
-        [Nn]* ) echo "terminal_width: half" > icat_settings.cfg; break;;
+        [Nn]* ) echo "font_width: half" > icat_settings.cfg; break;;
         * ) echo "Please enter 'y' or 'n'.";;
     esac
 done
