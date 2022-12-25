@@ -16,8 +16,8 @@ To use ICat, run **icat 'imageFilename'**. You can add arguments after the file 
 - **-c** applies a contour filter to the image.
 - **-i** inverts the image.
 - **-s** sharpens the image.
-- **x1.5** prints image 1.5x larger than the default.
-- **x2** prints image 2x larger than the default.
+- **x1.5** prints image 1.5x larger than the default size.
+- **x2** prints image 2x larger than the default size.
 
 ## Example
 icating this image:
