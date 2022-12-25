@@ -3,8 +3,8 @@
 while true; do
     read -p "Is your terminal background light or dark? [l|d] " ld
     case $ld in
-        [Ll]* ) echo "terminal_color: light" > icat_settings.txt; break;;
-        [Dd]* ) echo "terminal_color: dark" > icat_settings.txt; break;;
+        [Ll]* ) echo "terminal_color: light" > icat_settings.cfg; break;;
+        [Dd]* ) echo "terminal_color: dark" > icat_settings.cfg; break;;
         * ) echo "Please enter 'l' or 'd'.";;
     esac
 done
@@ -12,7 +12,7 @@ done
 
 sudo cp icat.py /usr/local/bin/ 
 sudo cp icat /usr/local/bin/
-sudo cp icat_settings.txt /usr/local/bin/
+sudo cp icat_settings.cfg /usr/local/bin/
 
 FILE=/usr/local/bin/icat.py
 if test -f "$FILE"; then
@@ -26,7 +26,7 @@ if test -f "$FILE"; then
 else
     echo "❌\t$FILE could not be installed."
 fi
-FILE=/usr/local/bin/icat_settings.txt
+FILE=/usr/local/bin/icat_settings.cfg
 if test -f "$FILE"; then
     echo "✅\t$FILE installed."
 else

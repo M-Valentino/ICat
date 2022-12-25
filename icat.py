@@ -61,7 +61,7 @@ else:
     if "0-i" in options:
         bw_img = ImageOps.invert(bw_img)
 
-    settings = open("/usr/local/bin/icat_settings.txt", "r")
+    settings = open("/usr/local/bin/icat_settings.cfg", "r")
     if ("light" in settings.readline()):
         printImageL()
     else:
