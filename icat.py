@@ -7,7 +7,7 @@ import pathlib
 def printImageD():
     data = asarray(bw_img)
     for i in range(data.shape[0]):
-        # One char represents one half-width pixel.
+        # One char represents one pixel.
         for j in range(data.shape[1]):
             if data[i][j] >= 204:
                 print("█", end="")
@@ -25,7 +25,6 @@ def printImageD():
 def printImageL():
     data = asarray(bw_img)
     for i in range(data.shape[0]):
-        # One char represents one half-width pixel.
         for j in range(data.shape[1]):
             if data[i][j] >= 204:
                 print(" ", end="")
@@ -48,9 +47,10 @@ else:
         width, height = image.size
         # Resizes image to be 50% as wide since image will be printed in half width "pixels".
         image = image.resize((width, round(height / 2)), Image.ANTIALIAS)
+        # Is a multiplier used in doubling horizontal detail.
         scaleX = 2
     else:
-        # Enables width pixel mode. 
+        # Is a multiplier used in keeping horizontal detail the same. 
         scaleX = 1
 
     options = sys.argv[2:]
@@ -73,4 +73,6 @@ else:
         printImageL()
     else:
         printImageD()
+    
+    bw_img.close()
     settings.close()
