@@ -3,7 +3,7 @@ from numpy import asarray
 import sys
 import pathlib
 
-def printImage():
+def printImageD():
     data = asarray(bw_img)
     for i in range(data.shape[0]):
         # One char represents one half-width pixel.
@@ -18,6 +18,23 @@ def printImage():
                 print("░", end="")
             else:
                 print(" ", end="")
+        print()
+
+def printImageL():
+    data = asarray(bw_img)
+    for i in range(data.shape[0]):
+        # One char represents one half-width pixel.
+        for j in range(data.shape[1]):
+            if data[i][j] >= 204:
+                print(" ", end="")
+            elif data[i][j] >= 153:
+                print("░", end="")
+            elif data[i][j] >= 102:
+                print("▒",end="")
+            elif data[i][j] >= 51:
+                print("▓", end="")
+            else:
+                print("█", end="")
         print()
 
 if (pathlib.Path(sys.argv[1]).suffix == ".svg"):
@@ -44,4 +61,9 @@ else:
     if "0-i" in options:
         bw_img = ImageOps.invert(bw_img)
 
-    printImage()
+    settings = open("/usr/local/bin/icat_settings.txt", "r")
+    if ("light" in settings.readline()):
+        printImageL()
+    else:
+        printImageD()
+    settings.close()
