@@ -1,10 +1,12 @@
 #!/bin/sh
 if [ -z "$1" ]
 then
-    echo "usage: icat [file ...] [-s] [-c] [-i]"
+    echo "usage: icat [file ...] [-s] [-c] [-i] [x1.5 | x2]"
     echo "\t -s: sharpen image"
     echo "\t -c: apply contour filter"
     echo "\t -i: invert image"
+    echo "\t x1.5: prints image 1.5x larger than the default size."
+    echo "\t x2: prints image 2x larger than the default size."
 else
     python3 /usr/local/bin/icat.py "$(pwd)""/$1" "0$2" "0$3" "0$4" "0$5"
 fi
