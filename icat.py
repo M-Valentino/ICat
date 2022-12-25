@@ -27,10 +27,16 @@ else:
     width, height = image.size
     # Resizes image to be 50% as wide since image will be printed in half width "pixels".
     image = image.resize((width, round(height / 2)), Image.ANTIALIAS)
-    # Resize image to maintian new aspect ratio (so it can fit on terminal) as well as convert it to black and white.
-    bw_img  = ImageOps.contain(image, (80,40)).convert("L")
-    
     options = sys.argv[2:]
+
+    if ("0x1.5" in options):
+        bw_img  = ImageOps.contain(image, (120,60)).convert("L")
+    elif ("0x2" in options):
+        bw_img  = ImageOps.contain(image, (160,80)).convert("L")
+    else:
+        # Default size printed if user gives no args.
+        bw_img  = ImageOps.contain(image, (80,40)).convert("L")
+    
     if "0-s" in options:
         bw_img = bw_img.filter(ImageFilter.SHARPEN)
     if "0-c" in options:
