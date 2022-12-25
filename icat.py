@@ -5,7 +5,7 @@ import pathlib
 
 # For dark terminal backgrounds
 def printImageD():
-    data = asarray(bw_img)
+    data = asarray(image)
     for i in range(data.shape[0]):
         # One char represents one pixel.
         for j in range(data.shape[1]):
@@ -23,7 +23,7 @@ def printImageD():
 
 # For light terminal backgrounds
 def printImageL():
-    data = asarray(bw_img)
+    data = asarray(image)
     for i in range(data.shape[0]):
         for j in range(data.shape[1]):
             if data[i][j] >= 204:
@@ -55,24 +55,24 @@ else:
 
     options = sys.argv[2:]
     if ("0x1.5" in options):
-        bw_img  = ImageOps.contain(image, (60 * scaleX,60)).convert("L")
+        image = ImageOps.contain(image, (60 * scaleX,60)).convert("L")
     elif ("0x2" in options):
-        bw_img  = ImageOps.contain(image, (80 * scaleX,80)).convert("L")
+        image = ImageOps.contain(image, (80 * scaleX,80)).convert("L")
     else:
         # Default size printed if user gives no args.
-        bw_img  = ImageOps.contain(image, (40 * scaleX,40)).convert("L")
+        image  = ImageOps.contain(image, (40 * scaleX,40)).convert("L")
     
     if ("0-s" in options):
-        bw_img = bw_img.filter(ImageFilter.SHARPEN)
+        image = image.filter(ImageFilter.SHARPEN)
     if ("0-c" in options):
-        bw_img = bw_img.filter(ImageFilter.CONTOUR)
+        image = image.filter(ImageFilter.CONTOUR)
     if ("0-i" in options):
-        bw_img = ImageOps.invert(bw_img)
+        image = ImageOps.invert(image)
 
     if ("light" in settings.readline()):
         printImageL()
     else:
         printImageD()
     
-    bw_img.close()
+    image.close()
     settings.close()
