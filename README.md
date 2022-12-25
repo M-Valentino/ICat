@@ -12,7 +12,7 @@ The following is needed on your Mac or Linux installation in order to run ICat:
 Clone the git repo anywhere you like and then run **./install.sh**. If you get a `Permission denied` error, run the `chmod` command to change the file's permissions.
 The directory ICat is installed to is `/usr/local/bin/`. If you delete your local clone of the ICat repo, the installation will not be affected.
 
-When installing, you will be prompted to answer if your terminal is light or dark. This is to ensure that images display properly and don't appear inverted.
+When installing, you will be prompted to answer if your terminal is light or dark. This is to ensure that images display properly and don't appear inverted. You will also be asked if this character, '▓' appears as a square. This is to ensure that images don't appear stretched. If the character appears as a rectangle, images will be printed in "half pixels", and as a result, will have more horizontal detail.
 ## Running
 To use ICat, run **icat 'imageFilename'**. You can add arguments after the file name argument.
 - **-c** applies a contour filter to the image.
