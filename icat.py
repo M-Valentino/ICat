@@ -55,12 +55,12 @@ else:
 
     options = sys.argv[2:]
     if "0x1.5" in options:
-        image = ImageOps.contain(image, (60 * scaleX,60)).convert("L")
+        image = ImageOps.contain(image, (60 * scaleX, 60)).convert("L")
     elif "0x2" in options:
-        image = ImageOps.contain(image, (80 * scaleX,80)).convert("L")
+        image = ImageOps.contain(image, (80 * scaleX, 80)).convert("L")
     else:
         # Default size printed if user gives no args.
-        image  = ImageOps.contain(image, (40 * scaleX,40)).convert("L")
+        image  = ImageOps.contain(image, (40 * scaleX, 40)).convert("L")
     
     if "0-s" in options:
         image = image.filter(ImageFilter.SHARPEN)
