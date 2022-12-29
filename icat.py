@@ -14,7 +14,7 @@ def printImageD():
             elif data[i][j] >= 153:
                 print("▓", end="")
             elif data[i][j] >= 102:
-                print("▒",end="")
+                print("▒", end="")
             elif data[i][j] >= 51:
                 print("░", end="")
             else:
@@ -31,19 +31,19 @@ def printImageL():
             elif data[i][j] >= 153:
                 print("░", end="")
             elif data[i][j] >= 102:
-                print("▒",end="")
+                print("▒", end="")
             elif data[i][j] >= 51:
                 print("▓", end="")
             else:
                 print("█", end="")
         print()
 
-if (pathlib.Path(sys.argv[1]).suffix == ".svg"):
+if pathlib.Path(sys.argv[1]).suffix == ".svg":
     print("SVG not yet supported.")
 else:
     image = Image.open(sys.argv[1])
     settings = open("/usr/local/bin/icat_settings.cfg", "r")
-    if ("half" in settings.readline()):
+    if "half" in settings.readline():
         width, height = image.size
         # Resizes image to be 50% as wide since image will be printed in half width "pixels".
         image = image.resize((width, round(height / 2)), Image.ANTIALIAS)
@@ -54,22 +54,22 @@ else:
         scaleX = 1
 
     options = sys.argv[2:]
-    if ("0x1.5" in options):
+    if "0x1.5" in options:
         image = ImageOps.contain(image, (60 * scaleX,60)).convert("L")
-    elif ("0x2" in options):
+    elif "0x2" in options:
         image = ImageOps.contain(image, (80 * scaleX,80)).convert("L")
     else:
         # Default size printed if user gives no args.
         image  = ImageOps.contain(image, (40 * scaleX,40)).convert("L")
     
-    if ("0-s" in options):
+    if "0-s" in options:
         image = image.filter(ImageFilter.SHARPEN)
-    if ("0-c" in options):
+    if "0-c" in options:
         image = image.filter(ImageFilter.CONTOUR)
-    if ("0-i" in options):
+    if "0-i" in options:
         image = ImageOps.invert(image)
 
-    if ("light" in settings.readline()):
+    if "light" in settings.readline():
         printImageL()
     else:
         printImageD()
