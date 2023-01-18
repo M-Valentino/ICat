@@ -6,7 +6,8 @@ while true; do
         [Yy]* ) python3 -m pip install --upgrade pip;
             python3 -m pip install --upgrade Pillow;
             pip install numpy;
-            pip install pathlib; break;;
+            pip install pathlib;
+            break;;
         [Nn]* ) break;;
         * ) echo "Please enter 'y' or 'n'.";;
     esac
