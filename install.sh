@@ -1,6 +1,18 @@
 #!/bin/sh
 
 while true; do
+    read -p "Would you like to install the required Python libraries? [y|n] " yn
+    case $yn in
+        [Yy]* ) python3 -m pip install --upgrade pip;
+            python3 -m pip install --upgrade Pillow;
+            pip install numpy;
+            pip install pathlib; break;;
+        [Nn]* ) break;;
+        * ) echo "Please enter 'y' or 'n'.";;
+    esac
+done
+
+while true; do
     read -p "Is your terminal font wide where this character, '▓' appears as a square? [y|n] " yn
     case $yn in
         [Yy]* ) echo "font_width: full" > icat_settings.cfg; break;;
