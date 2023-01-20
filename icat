@@ -32,5 +32,7 @@ then
     echo "$line2" | sudo tee -a /usr/local/bin/icat_settings.cfg;
 
 else
+    # The pwd in the first arg must be prepended since this bash script is ran outside of the pwd.
+    # The '0' prepended to the args ensures that 5 args will always be passed to icat.py
     python3 /usr/local/bin/icat.py "$(pwd)""/$1" "0$2" "0$3" "0$4" "0$5"
 fi
