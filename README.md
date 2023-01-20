@@ -8,6 +8,7 @@ The following is needed on your Mac or Linux installation in order to run ICat:
 - numPy Python library
 - Pillow Python library
 - pathlib Python library
+Icat can automatically install the latest versions of these libraries if you wish.
 ### Installation
 Clone the git repo anywhere you like and then run **./install.sh**. If you get a `Permission denied` error, run the `chmod` command to change the file's permissions.
 The directory ICat is installed to is `/usr/local/bin/`. If you delete your local clone of the ICat repo, the installation will not be affected.
