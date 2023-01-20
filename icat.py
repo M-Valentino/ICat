@@ -61,7 +61,7 @@ else:
     if "half" in settings.readline():
         width, height = image.size
         # Resizes image to be 50% as wide since image will be printed in half width "pixels".
-        image = image.resize((width, round(height / 2)), Image.ANTIALIAS)
+        image = image.resize((width, round(height / 2)), Image.LANCZOS)
         # Is a multiplier used in doubling horizontal detail for half width pixels.
         scaleX = 2
     else:
