@@ -1,8 +1,9 @@
-from PIL import Image, ImageOps, ImageFilter
-from numpy import asarray
-import sys
-import pathlib
 import cairosvg
+from numpy import asarray
+import os
+import pathlib
+from PIL import Image, ImageOps, ImageFilter
+import sys
 
 """
 This file contains the core functionality of ICat. This file is exectuted by a bash file
@@ -94,4 +95,8 @@ else:
     printImageDarkBG()
 
 image.close()
+
+if pathlib.Path(sys.argv[1]).suffix == ".svg":
+    os.remove("icat-output.png")
+    
 settings.close()
