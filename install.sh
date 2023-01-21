@@ -7,6 +7,7 @@ while true; do
             python3 -m pip install --upgrade Pillow;
             pip install numpy;
             pip install pathlib;
+            pip install CairoSVG;
             break;;
         [Nn]* ) break;;
         * ) echo "Please enter 'y' or 'n'.";;
