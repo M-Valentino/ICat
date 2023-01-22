@@ -5,9 +5,9 @@ while true; do
     case $yn in
         [Yy]* ) python3 -m pip install --upgrade pip;
             python3 -m pip install --upgrade Pillow;
-            pip install numpy;
-            pip install pathlib;
-            pip install CairoSVG;
+            pip3 install numpy;
+            pip3 install pathlib;
+            pip3 install CairoSVG;
             break;;
         [Nn]* ) break;;
         * ) echo "Please enter 'y' or 'n'.";;
