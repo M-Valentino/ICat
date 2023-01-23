@@ -1,13 +1,14 @@
 #!/bin/sh
 if [ -z "$1" ]
 then
-    echo "usage: icat [file ... | -settings] [-s] [-c] [-i] [x1.5 | x2]"
+    echo "usage: icat [file ... | -settings | -version] [-s] [-c] [-i] [x1.5 | x2]"
     echo "\t -s: sharpen image"
     echo "\t -c: apply contour filter"
     echo "\t -i: invert image"
     echo "\t x1.5: prints image 1.5x larger than the default size."
     echo "\t x2: prints image 2x larger than the default size."
     echo "\t -settings: changes the settings of ICat."
+    echo "\t -version: Displays the installed ICat version."
 elif [[ $1 = "-settings" ]]
 then
     while true; do
@@ -30,6 +31,10 @@ then
 
     echo "$line1" | sudo tee /usr/local/bin/icat_settings.cfg;
     echo "$line2" | sudo tee -a /usr/local/bin/icat_settings.cfg;
+
+elif [[ $1 = "-version" ]]
+then
+    echo "v1.2.0";
 
 else
     # The pwd in the first arg must be prepended since this bash script is ran outside of the pwd.
