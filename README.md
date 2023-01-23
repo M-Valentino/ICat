@@ -1,4 +1,4 @@
-# ICat v1.1.2
+# ICat v1.2.0
 Have you ever wanted to know what an image looks like without having to leave the terminal? Well you're in luck! Now you can "cat" images with this utility called ICat (short for image cat)! ICat works by reading images and converting them to ASCII text. Images printed to the terminal are displayed in greyscale with 5 colors.
 
 ICat is primarily built with Python.
@@ -24,6 +24,7 @@ To use ICat, run **icat 'imageFilename'**. You can add arguments after the file 
 - **x1.5** prints image 1.5x larger than the default size.
 - **x2** prints image 2x larger than the default size.
 - **-settings** Changes the settings of ICat.
+- **-version** Displays the version of ICat installed.
 
 ## Example
 icating this image:
